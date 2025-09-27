@@ -1,0 +1,28 @@
+{
+  "name": "civil-engineering-3d-cladding-website",
+  "version": "1.0.0",
+  "description": "Professional website for civil engineering 3D cladding services",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "bootstrap": "^5.3.8",
+    "dotenv": "^16.6.1",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-validator": "^7.2.1",
+    "jquery": "^3.7.1",
+    "mongoose": "^7.8.7",
+    "nodemailer": "^6.9.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

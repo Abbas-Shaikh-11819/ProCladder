@@ -1,0 +1,261 @@
+<!-- views/pages/contact.ejs -->
+<div class="contact-page">
+    <!-- Page Header -->
+    <section class="page-header page-header-gradient text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-3 mt-4">Contact Us</h1>
+                    <p class="lead text-white">Get your free quote and consultation today</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-info py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="contact-card card h-100 text-center">
+                        <div class="card-body">
+                            <div class="contact-icon mb-3">
+                                <i class="fas fa-phone fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">Call Us</h5>
+                            <p class="card-text text-muted">Speak directly with our experts</p>
+                            <a href="tel:+15551234567" class="btn btn-outline-primary">
+                                +91 88506 20284
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="contact-card card h-100 text-center">
+                        <div class="card-body">
+                            <div class="contact-icon mb-3">
+                                <i class="fas fa-envelope fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">Email Us</h5>
+                            <p class="card-text text-muted">Send us your project details</p>
+                            <a href="mailto:info@3dcladdingpro.com" class="btn btn-outline-primary">
+                                imxaadil@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="contact-card card h-100 text-center">
+                        <div class="card-body">
+                            <div class="contact-icon mb-3">
+                                <i class="fas fa-map-marker-alt fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">Visit Us</h5>
+                            <p class="card-text text-muted">Schedule an office visit</p>
+                            <address class="mb-3">
+                                123 Engineering Ave<br>
+                                City, State 12345
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section py-5" id="quote">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-form-container">
+                        <div class="text-center mb-5">
+                            <h2 class="section-title">Get Your Free Quote</h2>
+                            <p class="section-subtitle text-muted">
+                                Fill out the form below and we'll get back to you within 24 hours
+                            </p>
+                        </div>
+                        
+                        <form id="contactForm" method="POST" action="/contact" class="needs-validation" novalidate>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label text-black">Full Name *</label>
+                                    <input type="text" class="form-control" id="name" name="name" 
+                                           value="<%= formData && formData.name ? formData.name : '' %>" required>
+                                    <div class="invalid-feedback">
+                                        Please provide your full name.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label text-black">Email Address *</label>
+                                    <input type="email" class="form-control" id="email" name="email" 
+                                           value="<%= formData && formData.email ? formData.email : '' %>" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid email address.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label text-black">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" 
+                                           value="<%= formData && formData.phone ? formData.phone : '' %>">
+                                    <div class="form-text">Optional - for faster response</div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="company" class="form-label text-black">Company/Organization</label>
+                                    <input type="text" class="form-control" id="company" name="company" 
+                                           value="<%= formData && formData.company ? formData.company : '' %>">
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="projectType" class="form-label text-black">Project Type *</label>
+                                    <select class="form-select" id="projectType" name="projectType" required>
+                                        <option value="">Select project type</option>
+                                        <option value="exterior-cladding" <%= formData && formData.projectType === 'exterior-cladding' ? 'selected' : '' %>>Exterior Cladding</option>
+                                        <option value="interior-cladding" <%= formData && formData.projectType === 'interior-cladding' ? 'selected' : '' %>>Interior Cladding</option>
+                                        <option value="commercial" <%= formData && formData.projectType === 'commercial' ? 'selected' : '' %>>Commercial Project</option>
+                                        <option value="residential" <%= formData && formData.projectType === 'residential' ? 'selected' : '' %>>Residential Project</option>
+                                        <option value="consultation" <%= formData && formData.projectType === 'consultation' ? 'selected' : '' %>>Consultation Only</option>
+                                        <option value="other" <%= formData && formData.projectType === 'other' ? 'selected' : '' %>>Other</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a project type.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="budget" class="form-label text-black">Project Budget</label>
+                                    <select class="form-select" id="budget" name="budget">
+                                        <option value="not-specified" <%= formData && formData.budget === 'not-specified' ? 'selected' : '' %>>Prefer not to specify</option>
+                                        <option value="under-50k" <%= formData && formData.budget === 'under-50k' ? 'selected' : '' %>>Under 50,000</option>
+                                        <option value="50k-100k" <%= formData && formData.budget === '50k-100k' ? 'selected' : '' %>>50,000 - 100,000</option>
+                                        <option value="100k-500k" <%= formData && formData.budget === '100k-500k' ? 'selected' : '' %>>100,000 - 500,000</option>
+                                        <option value="500k+" <%= formData && formData.budget === '500k+' ? 'selected' : '' %>>500,000+</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="timeline" class="form-label text-black">Project Timeline</label>
+                                    <select class="form-select" id="timeline" name="timeline">
+                                        <option value="flexible" <%= formData && formData.timeline === 'flexible' ? 'selected' : '' %>>Flexible timeline</option>
+                                        <option value="immediate" <%= formData && formData.timeline === 'immediate' ? 'selected' : '' %>>Immediate (ASAP)</option>
+                                        <option value="1-3-months" <%= formData && formData.timeline === '1-3-months' ? 'selected' : '' %>>1-3 months</option>
+                                        <option value="3-6-months" <%= formData && formData.timeline === '3-6-months' ? 'selected' : '' %>>3-6 months</option>
+                                        <option value="6-12-months" <%= formData && formData.timeline === '6-12-months' ? 'selected' : '' %>>6-12 months</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="message" class="form-label text-black">Project Details *</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" 
+                                          placeholder="Please describe your project requirements, location, specific needs, and any other relevant details..." required><%= formData && formData.message ? formData.message : '' %></textarea>
+                                <div class="invalid-feedback">
+                                    Please provide project details.
+                                </div>
+                                <div class="form-text">Minimum 10 characters required</div>
+                            </div>
+                            
+                            <!-- Display validation errors -->
+                            <% if (errors && errors.length > 0) { %>
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    <% errors.forEach(error => { %>
+                                    <li><%= error.msg %></li>
+                                    <% }) %>
+                                </ul>
+                            </div>
+                            <% } %>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg px-5">
+                                    Send Inquiry <i class="fas fa-paper-plane ms-2"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">Frequently Asked Questions</h2>
+                        <p class="section-subtitle text-muted">
+                            Quick answers to common questions about our services
+                        </p>
+                    </div>
+                    
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1">
+                                    How long does a typical 3D cladding project take?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Project timelines vary depending on size and complexity, but most projects take between 2-8 weeks from design approval to completion. We provide detailed timelines during the consultation phase.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
+                                    Do you provide free consultations and quotes?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we provide free initial consultations and detailed project quotes. Our team will assess your requirements and provide comprehensive pricing with no hidden costs.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3">
+                                    What materials do you work with?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We work with a wide range of materials including aluminum composite panels, fiber cement, natural stone, metal panels, and advanced composite materials. Material selection depends on your specific requirements and budget.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4">
+                                    Do you handle both commercial and residential projects?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we handle projects of all sizes from residential homes to large commercial buildings. Our team has experience with diverse project requirements and building codes.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,48 @@
+<div class="product-slider-container">
+    <div id="productSlider" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-indicators">
+            <% products.forEach((product, index) => { %>
+                <button type="button" 
+                        data-bs-target="#productSlider" 
+                        data-bs-slide-to="<%= index %>" 
+                        class="<%= index === 0 ? 'active' : '' %>" 
+                        aria-current="<%= index === 0 ? 'true' : 'false' %>" 
+                        aria-label="Slide <%= index + 1 %>"></button>
+            <% }) %>
+        </div>
+        
+        <div class="carousel-inner">
+            <% products.forEach((product, index) => { %>
+                <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                    <div class="row align-items-center g-4">
+                        
+                        <div class="col-12 col-md-6 order-2 order-md-1">
+                            <div class="slide-content">
+                                <h4 class="slide-title"><%= product.title %></h4>
+                                <p class="slide-description"><%= product.shortDescription %></p>
+                                <a href="/products/<%= product._id %>" class="btn btn-primary btn-slide-cta">
+                                    Learn More <i class="fas fa-arrow-right ms-2"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 order-1 order-md-2">
+                            <img src="<%= product.image %>" alt="<%= product.title %>" class="img-fluid rounded slider-image">
+                        </div>
+
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#productSlider" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#productSlider" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>

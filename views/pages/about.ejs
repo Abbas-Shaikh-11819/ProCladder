@@ -1,0 +1,341 @@
+<!-- views/pages/about.ejs -->
+<div class="about-page">
+    <!-- Page Header -->
+    <section class="page-header page-header-gradient text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-3 mt-4">About Cladify</h1>
+                    <p class="lead text-white">Excellence in civil engineering and 3D cladding solutions since 2015</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer Section -->
+    <section class="what-we-offer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">What We Offer</h2>
+                    <p class="section-subtitle text-muted">
+                        Comprehensive 3D cladding services for modern construction projects
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card card h-100 text-center">
+                        <div class="card-body">
+                            <div class="service-icon mb-3">
+                                <i class="fas fa-building fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">Exterior Cladding</h5>
+                            <p class="card-text">Advanced exterior cladding solutions with weather-resistant materials and modern aesthetic designs.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card card h-100 text-center">
+                        <div class="card-body">
+                            <div class="service-icon mb-3">
+                                <i class="fas fa-home fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">Interior Cladding</h5>
+                            <p class="card-text">Custom interior cladding systems that combine functionality with sophisticated design elements.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card card h-100 text-center">
+                        <div class="card-body">
+                            <div class="service-icon mb-3">
+                                <i class="fas fa-industry fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">Commercial Projects</h5>
+                            <p class="card-text">Large-scale commercial cladding projects with focus on durability and cost-effectiveness.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card card h-100 text-center">
+                        <div class="card-body">
+                            <div class="service-icon mb-3">
+                                <i class="fas fa-cube fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">3D Design Services</h5>
+                            <p class="card-text">State-of-the-art 3D modeling and visualization for accurate project planning and execution.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card card h-100 text-center">
+                        <div class="card-body">
+                            <div class="service-icon mb-3">
+                                <i class="fas fa-tools fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">Installation Services</h5>
+                            <p class="card-text">Professional installation by certified engineers ensuring quality and safety standards.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card card h-100 text-center">
+                        <div class="card-body">
+                            <div class="service-icon mb-3">
+                                <i class="fas fa-headset fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">Consultation</h5>
+                            <p class="card-text">Expert consultation services for project planning, material selection, and technical guidance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Image Slider -->
+    <% if (products && products.length > 0) { %>
+    <section class="product-showcase py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">Our Work Showcase</h2>
+                    <p class="section-subtitle text-muted">
+                        Explore our portfolio of successful 3D cladding projects
+                    </p>
+                </div>
+            </div>
+            
+            <div id="portfolioSlider" class="carousel slide" data-bs-ride="carousel">
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <% products.slice(0, 5).forEach((product, index) => { %>
+                        <button type="button" data-bs-target="#portfolioSlider" data-bs-slide-to="<%= index %>" 
+                                class="<%= index === 0 ? 'active' : '' %>"></button>
+                    <% }) %>
+                </div>
+                
+                <!-- Slides -->
+                <div class="carousel-inner">
+                    <% products.slice(0, 5).forEach((product, index) => { %>
+                        <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <img src="<%= product.image %>" alt="<%= product.title %>" class="img-fluid rounded shadow">
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="showcase-content">
+                                        <span class="badge bg-primary mb-2"><%= product.category.replace('-', ' ').toUpperCase() %></span>
+                                        <h4 class="showcase-title"><%= product.title %></h4>
+                                        <p class="showcase-description"><%= product.shortDescription %></p>
+                                        <a href="/products/<%= product._id %>" class="btn btn-outline-primary">
+                                            View Details <i class="fas fa-arrow-right ms-2"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+                
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#portfolioSlider" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#portfolioSlider" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <% } %>
+
+    <!-- Who Are We Section -->
+    <section class="who-we-are py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="/images/products/wornout_brick_cladding.jpg" alt="Our Team" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title text-start">Who We Are</h2>
+                    <p class="text-muted mb-4">
+                        Founded in 2024, Cladify has emerged as a leading provider of innovative cladding solutions 
+                        in the civil engineering sector. Our team of experienced engineers and designers specializes in 
+                        creating cutting-edge 3D cladding systems that combine aesthetic appeal with functional excellence.
+                    </p>
+                    <p class="text-muted mb-4">
+                        With over 500 successful projects completed across commercial, residential, and industrial sectors, 
+                        we have established ourselves as trusted partners in the construction industry. Our commitment to 
+                        quality, innovation, and customer satisfaction drives every project we undertake.
+                    </p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <div class="stat-item text-center">
+                                <h3 class="stat-number text-primary">50+</h3>
+                                <p class="stat-label">Projects Completed</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-item text-center">
+                                <h3 class="stat-number text-primary">1+</h3>
+                                <p class="stat-label">Years Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">Why Choose Us</h2>
+                    <p class="section-subtitle text-muted">
+                        Discover what sets us apart in the 3D cladding industry
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="advantage-item d-flex">
+                        <div class="advantage-icon me-4">
+                            <i class="fas fa-medal fa-2x text-primary"></i>
+                        </div>
+                        <div class="advantage-content">
+                            <h5 class="advantage-title">Expert Engineering Team</h5>
+                            <p class="advantage-description text-muted">
+                                Our certified civil engineers bring decades of combined experience in structural design and cladding systems.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="advantage-item d-flex">
+                        <div class="advantage-icon me-4">
+                            <i class="fas fa-cogs fa-2x text-primary"></i>
+                        </div>
+                        <div class="advantage-content">
+                            <h5 class="advantage-title">Advanced Technology</h5>
+                            <p class="advantage-description text-muted">
+                                We utilize the latest 3D modeling software and cutting-edge installation techniques for precision results.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="advantage-item d-flex">
+                        <div class="advantage-icon me-4">
+                            <i class="fas fa-shield-alt fa-2x text-primary"></i>
+                        </div>
+                        <div class="advantage-content">
+                            <h5 class="advantage-title">Quality Assurance</h5>
+                            <p class="advantage-description text-muted">
+                                Rigorous quality control processes ensure every project meets the highest industry standards and safety regulations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="advantage-item d-flex">
+                        <div class="advantage-icon me-4">
+                            <i class="fas fa-clock fa-2x text-primary"></i>
+                        </div>
+                        <div class="advantage-content">
+                            <h5 class="advantage-title">Timely Delivery</h5>
+                            <p class="advantage-description text-muted">
+                                We pride ourselves on completing projects on schedule without compromising on quality or safety.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="advantage-item d-flex">
+                        <div class="advantage-icon me-4">
+                            <i class="fas fa-dollar-sign fa-2x text-primary"></i>
+                        </div>
+                        <div class="advantage-content">
+                            <h5 class="advantage-title">Cost-Effective Solutions</h5>
+                            <p class="advantage-description text-muted">
+                                Competitive pricing with transparent costs and no hidden fees throughout the project lifecycle.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="advantage-item d-flex">
+                        <div class="advantage-icon me-4">
+                            <i class="fas fa-handshake fa-2x text-primary"></i>
+                        </div>
+                        <div class="advantage-content">
+                            <h5 class="advantage-title">Customer Support</h5>
+                            <p class="advantage-description text-muted">
+                                Dedicated support team available throughout the project and beyond for maintenance and consultation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Vision Section -->
+    <section class="our-vision py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                    <img src="/images/hero-banner/herobanner.jpg" alt="Our Vision" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <h2 class="section-title text-start">Our Vision</h2>
+                    <p class="text-muted mb-4">
+                        To revolutionize the construction industry through innovative 3D cladding technologies that enhance 
+                        both the aesthetic appeal and functional performance of buildings worldwide.
+                    </p>
+                    <p class="text-muted mb-4">
+                        We envision a future where sustainable, smart, and visually stunning cladding systems become the 
+                        standard for modern construction, contributing to more energy-efficient and environmentally 
+                        responsible buildings.
+                    </p>
+                    
+                    <div class="vision-goals">
+                        <div class="goal-item mb-3">
+                            <i class="fas fa-leaf text-success me-3"></i>
+                            <span>Sustainable construction practices and eco-friendly materials</span>
+                        </div>
+                        <div class="goal-item mb-3">
+                            <i class="fas fa-globe text-primary me-3"></i>
+                            <span>Expanding our services to international markets</span>
+                        </div>
+                        <div class="goal-item mb-3">
+                            <i class="fas fa-lightbulb text-warning me-3"></i>
+                            <span>Continuous innovation in smart building technologies</span>
+                        </div>
+                        <div class="goal-item mb-3">
+                            <i class="fas fa-users text-info me-3"></i>
+                            <span>Building long-term partnerships with industry leaders</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
