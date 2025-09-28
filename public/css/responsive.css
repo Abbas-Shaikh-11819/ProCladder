@@ -1934,8 +1934,9 @@ section {
     padding-left: var(--space-20);
   }
 
-  .testimonial-text{
-    font-size: var(--font-size-xl) !important;
+  .card-body .testimonial-text{
+    font-size: 25px !important;
+    color: #000000;
   }
 
   .testimonial-author h6{
@@ -1971,11 +1972,19 @@ section {
   }
 
   .card-title{
-    font-size: var(--font-size-xl) !important;
+    font-size: 25px !important;
   }
 
   .card-text{
-    font-size: var(--font-size-lg) !important;
+    font-size: 20px !important;
+  }
+
+  .service-card .card-body .card-title{
+    font-size: 28px !important;
+  }
+
+  .service-card .card-body .card-text{
+    font-size: 25px !important;
   }
 
   .product-slider-container{
@@ -2003,7 +2012,7 @@ section {
   }
 
   .showcase-description{
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .showcase-title{
