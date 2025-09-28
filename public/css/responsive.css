@@ -1713,7 +1713,7 @@ section {
 
 .card-text {
   font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
+  color: #000000;
   line-height: var(--line-height-normal);
   margin-bottom: var(--space-16);
   font-weight: var(--font-weight-normal);
@@ -1992,6 +1992,42 @@ section {
 
   .slide-content a{
     font-size: var(--font-size-lg) !important;
+  }
+
+  .our-vision p{
+    font-size: 22px;
+  }
+
+  .who-we-are p{
+    font-size: 22px;
+  }
+
+  .showcase-description{
+    font-size: 20px;
+  }
+
+  .showcase-title{
+    font-size: 25px;
+  }
+
+  .badge{
+    font-size: 16px !important;
+  }
+
+  .showcase-content a{
+    font-size: x-large;
+  }
+
+  .advantage-title{
+    font-size: x-large;
+  }
+
+  .advantage-description{
+    font-size: 22px;
+  }
+
+  .goal-item span,i{
+    font-size: 22px;
   }
 }
 
