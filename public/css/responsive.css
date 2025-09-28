@@ -2029,6 +2029,10 @@ section {
   .goal-item span,i{
     font-size: 22px;
   }
+
+  .nav-link{
+    font-size: larger !important;
+  }
 }
 
 /* Medium devices (768px and up) */
